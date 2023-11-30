@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Define a simple bean -->
+<!--      <bean id="helloBean" class="com.example.HelloWorld">
+        <property name="message" value="Hello, Spring!"/>
+    </bean>
+-->
+
+<!-- Defining a bean of our class, and setting values of the variables/properties using "SETTER INJECTION" -->
+<!-- Firt Bean (Object)-->
+	<bean class = "com.springcore.Student" name="Student1">
+	
+		<property name = "StudentId">
+			<value>       <!-- Value as a tag -->
+				1234
+			</value>		
+		</property>
+		
+		<property name= "Name" value = "Vaibhav"/> <!-- Value as an attribute -->
+			
+		
+		<property name = "Address">
+			<value>
+				Pune!
+			</value>
+		</property>
+	
+	</bean>
+	
+<!-- Second Bean (adding value as an attribute)-->
+	<bean class = "com.springcore.Student" name = "Student2">
+	
+	<property name = "StudentId" value = "5678"/>
+	<property name = "Name" value = "Shubham"/>
+	<property name = "Address" value = "Junnar"/>
+	
+	</bean>
+	
+<!-- Third bean using adding value using 'p' schema -->
+
+	<bean class = "com.springcore.Student" name = "Student3" p:studentId = "1122" p:Name = "Ajay" p:Address = "Mumbai"/>
+    <!-- Enable annotation-based configuration -->
+    <context:component-scan base-package="com.example"/>
+
+</beans>
