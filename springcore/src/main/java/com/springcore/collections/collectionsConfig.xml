@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Define a simple bean -->
+<!--      <bean id="helloBean" class="com.example.HelloWorld">
+        <property name="message" value="Hello, Spring!"/>
+    </bean>
+-->
+
+<!-- Defining a bean of our class, and setting values of the variables/properties using "SETTER INJECTION" -->
+<!-- First Bean (Object)-->
+	<bean class = "com.springcore.collections.Employee" name = "Employee1">
+	
+		<property name = "empId" value = "1234" /> 
+		<property name= "Name" value = "Vaibhav"/>
+		<property name="assignedBugs">
+		
+		<list>
+			<value>CWC-5592</value>
+			<value>"AMU-5594"</value>
+		</list>
+		
+		</property>
+		
+		<property name = "tickets">
+		
+			<map>
+				<entry key = "PSPT" value= "123" />
+				<entry key = "CWC" value= "456"/>
+				<entry key = "AMU" value = "495"/>						
+			</map>
+			
+		</property>
+	</bean>
+	
+	
+</beans>
