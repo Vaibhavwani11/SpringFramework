@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:c="http://www.springframework.org/schema/c"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Define a simple bean using property(setter) injection using <property> tag-->
+<!--      <bean id="helloBean" class="com.example.HelloWorld">
+        <property name="message" value="Hello, Spring!"/>
+    </bean>
+-->
+
+<!-- Defining a bean of our class, and setting values of the variables/properties using "CONSTRUCTOR INJECTION" using <constructor-arg> tag-->
+
+	<bean class ="com.springcore.collections.Employee" name = "emp1" >
+		<property name = "empId" value = "1234" />
+	 </bean>
+
+<!-- <bean class= "ci.Person" name="Person1">
+	
+	 Variable name n deta automatically detect karto datatype -->
+ <!-- 	<constructor-arg value ="Vaibhav"> </constructor-arg> 
+		<constructor-arg>
+			<value> 11</value>
+		</constructor-arg>
+		
+		<constructor-arg value = "5.9" type= "float"/> 
+		<constructor-arg ref= "emp"/>
+	</bean>
+	-->
+	
+	<!-- Using 'c' Schema -->
+	 <bean class = "ci.Person" name ="p1" c:_0="Vaibhav" c:_1= "20" c:_2="30.5" c:_3-ref = "emp1"/> 
+
+
+	  <!-- Person bean definition with constructor injection using c schema 
+    <bean id="personBean" class="ci.Person" c:name="John Doe" c:personId="123" c:height="5.8" c:emp-ref="employeeBean"/> -->
+    
+    <bean id = "add" class ="ci.Addition" >
+    	
+    	<!--By default,Adhi String type shodhto, nahi bhetla tr sequentially constructor call hoto!!
+			Explicitly apan type ani sequence configure karu shakto using type and index -->
+    	
+    	<constructor-arg value = "10" type="double" index="1"/>
+    	<constructor-arg value = "20" type="double"/>
+    	
+    </bean>
+	
+    <!-- Enable annotation-based configuration -->
+    <context:component-scan base-package="com.example"/>
+
+</beans>
