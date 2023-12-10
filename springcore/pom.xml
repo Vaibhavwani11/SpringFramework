@@ -44,6 +44,14 @@
       <version>5.7.1</version>
       <scope>test</scope>
     </dependency>
+    
+    <!-- Dependency added to use @PostContruct and @predestroy annotation -->
+    <dependency>
+    <groupId>javax.annotation</groupId>
+    <artifactId>javax.annotation-api</artifactId>
+    <version>1.3.2</version>
+	</dependency>
+
   </dependencies>
 
   <build>

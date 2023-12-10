@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:annotation-config> </context:annotation-config>
+	
+    <!-- Define a simple bean -->
+<!--      <bean id="helloBean" class="com.example.HelloWorld">
+        <property name="message" value="Hello, Spring!"/>
+    </bean>
+-->
+
+<!-- Defining a bean of our class, and setting values of the variables/properties using "SETTER INJECTION" -->
+	<bean class = "lifecycle.Samosa" name ="s1" p:price="20.5" init-method="init" destroy-method="destroy"/>
+
+	<bean class = "lifecycle.InterfacesExample" name = "i1" p:x="1.1"/>
+	
+	<bean class = "lifecycle.UsingAnnotations" name = "u1" p:a="5.5"/>
+
+    <!-- Enable annotation-based configuration -->
+    <context:component-scan base-package="com.example"/>
+
+</beans>
