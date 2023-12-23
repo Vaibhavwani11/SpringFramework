@@ -14,22 +14,24 @@
 
 	<bean class = "ref.B" name ="bref" p:y="10" />
 
-<!-- 	
-	<bean class = "ref.A" name = "aref">
+<!-- CREATING BEAN OF class A -->
+	
+<!-- <bean class = "ref.A" name = "aref">
 		<property name="x" value="20" />
-		<!-- need to use ref bean tag for creating reference -->
-		<!-- 1.ref as an element -->
+
+NEED TO USE "ref bean" tag FOR CREATING REFERENCE
+ 1."ref bean" as an element -->
 		
 	 <!-- <property name="obj">
 			<ref bean = "bref"></ref>
 		</property> -->
 		
-		<!-- 2.ref as an attribute -->
-		<property name="obj" ref="bref"/>
-<!--  	
+<!-- 2."ref" as an attribute 
+		<property name="obj" ref="bref"/> 
+		
 	</bean> -->
 	
-	<!-- 3.Just add -ref for using 'p' schema -->
+<!-- 3.Just add -ref for using 'p' schema -->
 	 <bean class = "ref.A" name = "aref" p:x="15" p:obj-ref= "bref"/> 
 
     <!-- Enable annotation-based configuration -->

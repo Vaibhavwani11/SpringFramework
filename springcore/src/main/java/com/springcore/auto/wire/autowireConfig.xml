@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Define a simple bean -->
+<!--      <bean id="helloBean" class="com.example.HelloWorld">
+        <property name="message" value="Hello, Spring!"/>
+    </bean>
+-->
+	<bean class = "com.springcore.auto.wire.Company" name = "c1" p:name = "PTC" p:type="Product-based"/>
+<!--    <bean class = "com.springcore.auto.wire.Company" name = "com" p:name = "DRUVA" p:type="UNICORN"/> -->
+<!-- 	<bean class ="com.springcore.auto.wire.Company" name = "c2" p:name = "Microsoft" p:type="Dream-company"/> -->
+	
+<!--   	CONVENTIONAL METHOD
+	<bean class = "com.springcore.auto.wire.Employee" name ="e1" p:com-ref ="c1"/>
+-->
+
+<!-- USING AUTO-WIRING -->
+	<!-- 1.byName: will search for the bean in config file where exact BEAN NAME=VARIABLE NAME (will search for "com" here), insert object if found otherwise null-->
+	<bean class = "com.springcore.auto.wire.Employee" name = "e0" autowire = "byName"/>
+	
+	<!-- 2.byType: will search for the bean in config file where BEAN TYPE=VARIABLE TYPE (will search for bean of type address here)
+					Suppose there are 2 beans of same type in the config file then EXCEPTION, expected single matching bean but found 2: c1,c2  -->
+	<bean class = "com.springcore.auto.wire.Employee" name = "e1" autowire = "byType"/>
+	
+	<!-- 3.by constructor: above 2 methods using SETTER INJECTION. this will use CONSTRUCTOR INJECTION, 
+						   will search & inject the exact object name first(i.e. com) if not found then inject the other one i.e.c1 -->
+	<bean class = "com.springcore.auto.wire.Employee" name = "e2" autowire = "constructor"/>
+		
+    <!-- Enable annotation-based configuration -->
+    <context:component-scan base-package="com.example"/>
+
+</beans>

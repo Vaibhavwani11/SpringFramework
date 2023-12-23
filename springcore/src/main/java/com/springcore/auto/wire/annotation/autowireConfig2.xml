@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Define a simple bean -->
+<!--      <bean id="helloBean" class="com.example.HelloWorld">
+        <property name="message" value="Hello, Spring!"/>
+    </bean>
+-->
+	<bean class = "com.springcore.auto.wire.annotation.Company" name = "c1" p:name = "PTC" p:type="Product-based"/>
+    <bean class = "com.springcore.auto.wire.annotation.Company" name = "com" p:name = "DRUVA" p:type="UNICORN"/> 
+<!-- 	<bean class ="com.springcore.auto.wire.Company" name = "c2" p:name = "Microsoft" p:type="Dream-company"/> -->
+	
+<!--   	CONVENTIONAL METHOD
+	<bean class = "com.springcore.auto.wire.Employee" name ="e1" p:com-ref ="c1"/>
+-->
+
+<!-- USING AUTOWIRING: @Autowired ANNOTATION, no need to write autowire=byname/bytype/contructor tag, no need to check name of the class to be injected i.e. c1
+					#Drawback: it won't work if I create 2 beans of Company class -->
+
+	<bean class = "com.springcore.auto.wire.annotation.Employee" name = "emp1"/>
+		
+    <!-- Enable annotation-based configuration -->
+    <context:annotation-config/>
+    <context:component-scan base-package="com.example"/>
+
+</beans>

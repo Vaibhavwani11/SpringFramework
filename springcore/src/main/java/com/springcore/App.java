@@ -13,7 +13,7 @@ public class App {
 
     //This is DEPENDENCY INJECTION
     ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
-    Student student1 = (Student)context.getBean("Student1");
+    Student student1 = context.getBean("Student1",Student.class);
   
     Student student2 = (Student)context.getBean("Student2");
     
