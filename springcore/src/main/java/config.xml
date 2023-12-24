@@ -36,7 +36,7 @@
 	</bean>
 	
 <!-- Second Bean (adding value as an attribute)-->
-	<bean class = "com.springcore.Student" name = "Student2">
+	<bean class = "com.springcore.Student" name = "Student2" scope ="prototype">
 	
 	<property name = "StudentId" value = "5678"/>
 	<property name = "Name" value = "Shubham"/>

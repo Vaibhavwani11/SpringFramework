@@ -16,7 +16,7 @@ public class App {
     Student student1 = context.getBean("Student1",Student.class);
   
     Student student2 = (Student)context.getBean("Student2");
-    
+    System.out.println(student2.hashCode() + " " + student1.hashCode());
     Student student3 = (Student)context.getBean("Student3");
     
     System.out.println(student1);
