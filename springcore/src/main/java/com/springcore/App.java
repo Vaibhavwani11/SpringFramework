@@ -11,6 +11,11 @@ public class App {
     //Instead of creating object of Student class here,
     //we'll instantiate it using Spring
 
+    //Tight coupling
+    Student s = new Student(10,"abc","Mumbai");
+    System.out.println(s);
+    
+    
     //This is DEPENDENCY INJECTION
     ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
     Student student1 = context.getBean("Student1",Student.class);
